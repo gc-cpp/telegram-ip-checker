@@ -23,9 +23,6 @@ jobs:
       - name: Publish artifacts
         run: 
           dotnet publish -c Release -o /var/www/ip-checker
-      - name: Build
-        run: 
-          dotnet build --configuration Release --no-restore /var/www/ip-checker
       - name: Restart bot
         run: |
           systemctl restart IpChecker
