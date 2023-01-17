@@ -25,11 +25,11 @@ botClient.StartReceiving(
 
 var me = await botClient.GetMeAsync();
 
-Console.WriteLine($"Start listening for @{me.Username}");
-Console.ReadLine();
-
-// Send cancellation request to stop bot
-cts.Cancel();
+while (true)
+{
+    Console.WriteLine("healthy");
+    await Task.Delay(5000);
+}
 
 async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
 {
