@@ -17,6 +17,7 @@ jobs:
         run: 
           dotnet build --configuration Release --no-restore
   deploy:
+    needs: build
     name: deploy
     runs-on: [self-hosted]
     steps:
