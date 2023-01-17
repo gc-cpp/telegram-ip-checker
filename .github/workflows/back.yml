@@ -22,8 +22,9 @@ jobs:
     runs-on: [self-hosted]
     steps:
       - name: Publish artifacts
-        run: 
+        run: |
+          systemctl stop IpChecker
           dotnet publish -c Release -o /var/www/ip-checker
       - name: Restart bot
         run: |
-          systemctl restart IpChecker
+          systemctl start IpChecker
