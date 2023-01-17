@@ -45,7 +45,7 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
     Console.WriteLine($"Received a '{messageText}' message in chat {chatId}.");
 
     // Echo received message text
-    if (string.Equals(messageText, "/ip", StringComparison.OrdinalIgnoreCase))
+    if (messageText.StartsWith("/ip", StringComparison.OrdinalIgnoreCase))
     {
         var result = await httpClient.GetStringAsync("http://ipinfo.io/ip");
         _ = await botClient.SendTextMessageAsync(
